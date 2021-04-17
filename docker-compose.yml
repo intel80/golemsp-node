@@ -1,0 +1,7 @@
+version: "1"
+services:
+   vm:
+      image: intel80/golemsp-node:latest
+      devices:
+         - /dev/kvm
+      restart: always

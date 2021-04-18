@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag golemsp-node:$(date +%s)
+      run: docker build . --file Dockerfile --tag intel80/golemsp-node:$(date +%s)

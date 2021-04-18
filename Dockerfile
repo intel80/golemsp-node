@@ -22,8 +22,8 @@ RUN apk update \
 && tar -zxvf golem-provider-linux-v${YA_CORE_VERSION}.tar.gz \
 && tar -zxvf ya-runtime-wasi-linux-v${YA_WASI_VERSION}.tar.gz \
 && tar -zxvf ya-runtime-vm-linux-v${YA_VM_VERSION}.tar.gz \
+&& mv golem-provider-linux-v${YA_CORE_VERSION}/plugins ${YA_DIR_PLUGINS} \
 && cp golem-provider-linux-v${YA_CORE_VERSION}/* ${YA_DIR_BIN_TMP} \
-&& cp -R golem-provider-linux-v${YA_CORE_VERSION}/plugins/* ${YA_DIR_PLUGINS} \
 && cp -R ya-runtime-wasi-linux-v${YA_WASI_VERSION}/* ${YA_DIR_PLUGINS} \
 && cp -R ya-runtime-vm-linux-v${YA_VM_VERSION}/* ${YA_DIR_PLUGINS}
 

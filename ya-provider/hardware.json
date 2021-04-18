@@ -4,7 +4,7 @@
     "default": {
       "cpu_threads": 4,
       "mem_gib": 4,
-      "storage_gib": 25
+      "storage_gib": 24
     }
   }
 }

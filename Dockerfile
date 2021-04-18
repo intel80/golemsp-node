@@ -6,7 +6,7 @@ ARG YA_DIR_BIN=/usr/bin/
 ARG YA_DIR_BIN_TMP=/golem-provider-bin/
 ARG YA_DIR_PLUGINS=/lib/yagna/plugins/
 
-FROM alpine:latest as installer
+FROM alpine:3.13 as installer
 ARG YA_CORE_VERSION
 ARG YA_WASI_VERSION
 ARG YA_VM_VERSION
@@ -22,12 +22,12 @@ RUN apk update \
 && tar -zxvf golem-provider-linux-v${YA_CORE_VERSION}.tar.gz \
 && tar -zxvf ya-runtime-wasi-linux-v${YA_WASI_VERSION}.tar.gz \
 && tar -zxvf ya-runtime-vm-linux-v${YA_VM_VERSION}.tar.gz \
-&& find golem-provider-linux-v${YA_CORE_VERSION} -executable -type f -exec cp -t ${YA_DIR_BIN_TMP} {} + \
+&& cp golem-provider-linux-v${YA_CORE_VERSION}/* ${YA_DIR_BIN_TMP} \
 && cp -R golem-provider-linux-v${YA_CORE_VERSION}/plugins/* ${YA_DIR_PLUGINS} \
 && cp -R ya-runtime-wasi-linux-v${YA_WASI_VERSION}/* ${YA_DIR_PLUGINS} \
 && cp -R ya-runtime-vm-linux-v${YA_VM_VERSION}/* ${YA_DIR_PLUGINS}
 
-FROM alpine:latest
+FROM alpine:3.13
 ARG YA_DIR_BIN
 ARG YA_DIR_BIN_TMP
 ARG YA_DIR_PLUGINS
